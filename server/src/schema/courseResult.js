@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
 
-// courseResult(id: ID!): CourseResult!
 export default gql`
     extend type Query {
         courseResults: [CourseResult!]
