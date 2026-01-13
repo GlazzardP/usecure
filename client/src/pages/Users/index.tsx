@@ -33,7 +33,11 @@ export const UsersPage = () => {
     useState<boolean>(false);
   const [showDeleteUserModal, setShowDeleteUserModal] =
     useState<boolean>(false);
-  const [chosenUser, setChosenUser] = useState<SelectedUser>();
+  const [chosenUser, setChosenUser] = useState<SelectedUser>({
+  firstName: "",
+  lastName: "",
+  id: "",
+  });
 
   const navigate = useNavigate();
   const { loading, error, data } = useQuery(GET_USERS);
@@ -43,6 +47,11 @@ export const UsersPage = () => {
   const navigateToUserDetails = (user: SelectedUser) => {
     navigate(`/course-results/${user.id}`, { state: { user } });
   };
+
+  const handleDeleteUser = (chosenUser: SelectedUser) => { 
+    setChosenUser(chosenUser)
+    setShowDeleteUserModal(true)
+  }
 
   const columns: GridColDef[] = [
     {
@@ -56,9 +65,19 @@ export const UsersPage = () => {
           spacing={2}
           alignItems="center"
           onClick={() => navigateToUserDetails(params.row)}
+          m={1}
         >
           <Avatar />
-          <Typography fontWeight={600}>
+          <Typography
+            fontWeight={600}
+            sx={{
+              cursor: "pointer",
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
             {params.row.firstName} {params.row.lastName}
           </Typography>
         </Stack>
@@ -70,10 +89,12 @@ export const UsersPage = () => {
       flex: 1,
     },
     {
-      field: "role",
-      headerName: "Role",
+      field: "courseCount",
+      headerName: "Courses Completed",
       flex: 0.7,
-      renderCell: () => <Chip label="User" size="small" />,
+      renderCell: (params) => (
+        <Chip label={params.row.courseResults.length} size="small" />
+      ),
     },
     {
       field: "actions",
@@ -87,7 +108,7 @@ export const UsersPage = () => {
           <IconButton
             size="small"
             color="error"
-            onClick={() => setShowDeleteUserModal(true)}
+            onClick={() => handleDeleteUser(params.row)}
           >
             <Delete />
           </IconButton>
@@ -155,7 +176,6 @@ export const UsersPage = () => {
               },
             }}
             disableRowSelectionOnClick
-            onRowClick={(params) => setChosenUser(params.row)}
             sx={{
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "grey.100",
@@ -183,7 +203,7 @@ export const UsersPage = () => {
         <DeleteUserModal
           open={showDeleteUserModal}
           onClose={() => setShowDeleteUserModal(false)}
-          name={chosenUser.firstName || "Unknown Name"}
+          name={chosenUser.firstName}
           userId={chosenUser.id}
         />
       )}
