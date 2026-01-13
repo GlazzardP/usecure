@@ -14,11 +14,13 @@ Use of a UI library is fine. Internally we use a component library built on Tail
 For the sake of this demo, we use [lowdb](https://github.com/typicode/lowdb) for storing our data, so you don't get stuck setting up a proper database. 
 
 You should have:
-* A way to display all users
-* A way to display all of a specific users information and course results
-    * On this page you should be able to view all course results for a user
-    * Create/Edit/Delete course results for a user
-* A page/modal to edit a user
-* A page/modal to create a user
-* A modal/confirmation to delete a user
+* A way to display all users - Done
+* A way to display all of a specific users information and course results - Done
+    * On this page you should be able to view all course results for a user - Done
+    * Create course results for a user - Done
+    * Edit course results for a user - Done
+    * Delete course results for a user - Done
+* A page/modal to edit a user - Done
+* A page/modal to create a user - Done
+* A modal/confirmation to delete a user - Done
 

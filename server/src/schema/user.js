@@ -4,10 +4,12 @@ export default gql`
     extend type Query {
         users: [User!]
         user(id: ID!): User!
+        usersCount: Int!
     }
     
     type User {
         id: ID
+        firstName: String
         lastName: String
         email: String
     }
