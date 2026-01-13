@@ -8,7 +8,7 @@ Due to the size of the project, I chose not to use Redux.
 
 ### Data Fetching & Caching
 
-I explored useQuery and, based on my understanding, it provides built-in caching.
+I read GraphQl docs and based on my understanding useQuery provides built-in caching.
 
 Given the small size of the project and the limited query size, this felt like an appropriate solution.
 
@@ -18,9 +18,7 @@ I would have liked to spend more time researching best practices for combining G
 
 In a larger-scale project, I would focus on:
 
-Better alignment between GraphQL schema types and frontend TypeScript types
-
-Reducing duplication and therefore improving maintainability as the project grows
+Better alignment between GraphQL schema types and frontend TypeScript types which should improve maintainability as the project grows.
 
 ## #   Errors / Bugs
 
@@ -28,19 +26,15 @@ I believe I resolved bugs that mainly appeared to be in Mutations and Queries on
 
 ###  Tech Stack
 
-MUI (Material UI)
-
 MUI was the only external UI library added.
 
-I use it regularly in my day-to-day work, so it was the most efficient choice for this me.
+I use it regularly in my day-to-day work, so it was the most efficient choice for me.
 
 ### Future Improvements
 
 If this project were to be expanded further, I would:
 
-Create seed data for courses
-
-Implement a many-to-many relationship between:
+Create seed data for courses and implement a many-to-many relationship between:
 
 Users
 
@@ -48,7 +42,7 @@ Courses
 
 Course results
 
-Improve overall data modeling to better support scalability
+With a caveat that I would want to understand relationships better in GraphQl
 
 Add tests, focusing with unit tests on logic around modals as this is where the majority of the create/update/delete logic happens 
 

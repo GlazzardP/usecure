@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 
-import { PersonAdd, Edit, Delete, MoreVert } from "@mui/icons-material";
+import { PersonAdd, Delete, MoreVert } from "@mui/icons-material";
 
 import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
